@@ -3,7 +3,7 @@ import React from 'react';
 
 const CategoryNav = ({ categories, onSelect }) => {
   return (
-    <nav className="flex flex-wrap justify-center gap-3 mt-6">
+    <nav className="flex flex-wrap justify-center gap-8 mt-6">
       {categories.map((cat) => (
         <button
           key={cat.category}

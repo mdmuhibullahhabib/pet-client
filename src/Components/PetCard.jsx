@@ -11,24 +11,24 @@ const PetCard = ({ pet, onLike, onView }) => {
         <p className="text-sm text-gray-600">Gender: {pet.gender}</p>
         <p className="text-sm text-gray-800 font-medium mt-2">Price: ${pet.price}</p>
       </div>
-      <hr className="my-4 border-t border-gray-200" />
+      <hr className="my-4 mx-3 border-t border-gray-200" />
       <div className="px-4 pb-4 flex justify-between items-center">
         <button
           onClick={onLike}
-          className="text-red-500 hover:text-red-600 transition"
+          className="btn text-red-500 hover:text-red-600 transition"
           title="Like"
         >
           <img src="https://img.icons8.com/?size=24&id=u8MTpAq972MG&format=png" alt="like" />
         </button>
         <button
           onClick={() => document.getElementById('countdownButton').click()}
-          className="text-sm px-4 py-1 bg-[#0E7A81] text-white rounded hover:bg-[#0c6368]"
+          className="btn text-sm px-4 py-1 bg-[#0E7A81] text-white rounded hover:bg-[#0c6368]"
         >
           Adopt
         </button>
         <button
           onClick={onView}
-          className="text-sm px-4 py-1 border border-[#0E7A81] text-[#0E7A81] rounded hover:bg-[#0E7A811A]"
+          className="btn text-sm px-4 py-1 border border-[#0E7A81] text-[#0E7A81] rounded hover:bg-[#0E7A811A]"
         >
           Details
         </button>
