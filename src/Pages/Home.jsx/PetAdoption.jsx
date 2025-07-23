@@ -4,9 +4,7 @@ import CategoryNav from '../../Components/CategoryNav';
 import PetCard from '../../Components/PetCard';
 import PetModal from '../../Components/PetModal';
 import AdoptModal from '../../Components/AdoptModal';
-// import PetCard from '../../components/PetCard';
-// import PetModal from '../../components/PetModal';
-// import AdoptModal from '../../components/AdoptModal';
+
 
 const PetAdoption = () => {
   const [categories, setCategories] = useState([]);
@@ -81,6 +79,10 @@ const PetAdoption = () => {
                 pet={pet}
                 onLike={() => likePet(pet.image)}
                 onView={() => setSelectedPet(pet.petId)}
+                onAdopt={(pet) => {
+                  setSelectedPet(pet);
+                  setShowAdoptModal(true);
+                }}
               />
             ))}
           </div>
