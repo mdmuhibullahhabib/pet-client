@@ -1,13 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 import logo from '../assets/logo.webp';
 
 const Navbar = () => {
+  const [countdown, setCountdown] = useState(10); // 10-second timer for example
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCountdown((prev) => (prev > 0 ? prev - 1 : 10)); // Resets after 0
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'Shop', path: '/shop' },
     { name: 'Contact', path: '/contact' },
+    { name: 'Blog', path: '/blog' }, // ✅ Added Blog
   ];
 
   return (
@@ -38,18 +48,23 @@ const Navbar = () => {
             >
               {navItems.map((item) => (
                 <li key={item.name}>
-                  <Link to={item.path} className="hover:text-primary">
+                  <NavLink
+                    to={item.path}
+                    className={({ isActive }) =>
+                      isActive ? 'text-primary font-bold' : 'hover:text-primary'
+                    }
+                  >
                     {item.name}
-                  </Link>
+                  </NavLink>
                 </li>
               ))}
             </ul>
           </div>
 
-          <Link to="/" className="btn btn-ghost text-xl font-bold flex items-center gap-2">
+          <NavLink to="/" className="btn btn-ghost text-xl font-bold flex items-center gap-2">
             <img src={logo} alt="logo" className="w-8 h-8" />
             Peddy
-          </Link>
+          </NavLink>
         </div>
 
         {/* Center - Desktop Menu */}
@@ -57,22 +72,45 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 gap-4">
             {navItems.map((item) => (
               <li key={item.name}>
-                <Link
+                <NavLink
                   to={item.path}
-                  className="hover:text-primary transition duration-200 font-medium"
+                  className={({ isActive }) =>
+                    isActive
+                      ? 'text-primary border-b-2 border-primary font-bold'
+                      : 'hover:text-primary transition duration-200 font-medium'
+                  }
                 >
                   {item.name}
-                </Link>
+                </NavLink>
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Right - Profile Icon */}
-        <div className="navbar-end">
-          <Link to="/profile" className="btn btn-ghost text-xl">
+        {/* Right Side Buttons */}
+        <div className="navbar-end flex items-center gap-4">
+          <NavLink
+            to="/adopt"
+            className="btn btn-outline btn-sm border-primary text-primary hover:bg-primary hover:text-white"
+          >
+            Adopt
+          </NavLink>
+
+          <div className="relative">
+            <NavLink
+              to="/cart"
+              className="btn btn-sm bg-primary text-white hover:bg-[#0e5e64]"
+            >
+              Add to Cart
+            </NavLink>
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
+              {countdown}
+            </span>
+          </div>
+
+          <NavLink to="/profile" className="btn btn-ghost text-xl">
             <FaUser />
-          </Link>
+          </NavLink>
         </div>
       </nav>
     </div>
