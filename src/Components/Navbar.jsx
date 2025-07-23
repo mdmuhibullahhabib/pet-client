@@ -1,46 +1,82 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import logo from '../assets/logo.webp'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaUser } from 'react-icons/fa';
+import logo from '../assets/logo.webp';
 
 const Navbar = () => {
-  return (
-       <div className="w-11/12 mx-auto">
-        <nav>
-            <div className="navbar bg-base-100">
-                <div className="navbar-start">
-                    <div className="dropdown">
-                        <div tabindex="0" role="button" className="btn btn-ghost lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 6h16M4 12h8m-8 6h16" />
-                            </svg>
-                        </div>
-                        <ul tabindex="0"
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                            <li><a>Item 1</a></li>
-                            <li><a>Item 3</a></li>
-                        </ul>
-                    </div>
-                    <Link className="btn btn-ghost text-xl font-bold">
-                    {/* <img src={logo} alt="logo"> */}
-                    <img src={logo} alt="" />
-                    Peddy</Link>
-                </div>
-                <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
-                        <li><a>Home</a></li>
-                        <li><a>Shop</a></li>
-                        <li><a>Contact</a></li>
-                    </ul>
-                </div>
-                <div className="navbar-end">
-                    <a className=""><i className="fa-regular fa-user"></i></a>
-                </div>
-            </div>
-        </nav>
-    </div>
-  )
-}
+  const navItems = [
+    { name: 'Home', path: '/' },
+    { name: 'Shop', path: '/shop' },
+    { name: 'Contact', path: '/contact' },
+  ];
 
-export default Navbar
+  return (
+    <div className="w-11/12 mx-auto">
+      <nav className="navbar bg-base-100">
+        {/* Left - Logo & Mobile Menu */}
+        <div className="navbar-start">
+          <div className="dropdown">
+            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-50"
+            >
+              {navItems.map((item) => (
+                <li key={item.name}>
+                  <Link to={item.path} className="hover:text-primary">
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <Link to="/" className="btn btn-ghost text-xl font-bold flex items-center gap-2">
+            <img src={logo} alt="logo" className="w-8 h-8" />
+            Peddy
+          </Link>
+        </div>
+
+        {/* Center - Desktop Menu */}
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1 gap-4">
+            {navItems.map((item) => (
+              <li key={item.name}>
+                <Link
+                  to={item.path}
+                  className="hover:text-primary transition duration-200 font-medium"
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Right - Profile Icon */}
+        <div className="navbar-end">
+          <Link to="/profile" className="btn btn-ghost text-xl">
+            <FaUser />
+          </Link>
+        </div>
+      </nav>
+    </div>
+  );
+};
+
+export default Navbar;
