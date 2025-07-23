@@ -61,10 +61,4 @@ const Shop = () => {
               </li>
             ))}
           </ul>
-        </div>
-      )}
-    </main>
-  );
-};
-
-export default Shop;
+        
