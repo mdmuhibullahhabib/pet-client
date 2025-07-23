@@ -16,13 +16,4 @@ const PetCard = ({ pet, onLike, onView }) => {
       </div>
       <div className="card-actions pt-3 flex justify-around">
         <button onClick={onLike} className="btn bg-white hover:bg-green-400">
-          <img src="https://img.icons8.com/?size=24&id=u8MTpAq972MG&format=png" alt="like" />
-        </button>
-        <button onClick={() => document.getElementById('countdownButton').click()} className="btn bg-white text-[#0E7A81]">Adopt</button>
-        <button onClick={onView} className="btn bg-white text-[#0E7A81]">Details</button>
-      </div>
-    </div>
-  );
-};
 
-export default PetCard;
