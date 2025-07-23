@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaUser } from 'react-icons/fa';
+import { FaUser, FaShoppingCart, FaPaw } from 'react-icons/fa'; // 🛒 and 🐾 icons
 import logo from '../assets/logo.webp';
 
 const Navbar = () => {
-  const [countdown, setCountdown] = useState(10); // 10-second timer for example
+  const [countdown, setCountdown] = useState(10);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCountdown((prev) => (prev > 0 ? prev - 1 : 10)); // Resets after 0
+      setCountdown((prev) => (prev > 0 ? prev - 1 : 10));
     }, 1000);
     return () => clearInterval(timer);
   }, []);
@@ -17,7 +17,7 @@ const Navbar = () => {
     { name: 'Home', path: '/' },
     { name: 'Shop', path: '/shop' },
     { name: 'Contact', path: '/contact' },
-    { name: 'Blog', path: '/blog' }, // ✅ Added Blog
+    { name: 'Blog', path: '/blog' },
   ];
 
   return (
@@ -89,18 +89,22 @@ const Navbar = () => {
 
         {/* Right Side Buttons */}
         <div className="navbar-end flex items-center gap-4">
+          {/* Adopt Button with Icon */}
           <NavLink
             to="/adopt"
-            className="btn btn-outline btn-sm border-primary text-primary hover:bg-primary hover:text-white"
+            className="btn btn-outline btn-sm border-primary text-primary hover:bg-primary hover:text-white flex items-center gap-2"
           >
+            <FaPaw />
             Adopt
           </NavLink>
 
+          {/* Add to Cart with Icon & Countdown */}
           <div className="relative">
             <NavLink
               to="/cart"
-              className="btn btn-sm bg-primary text-white hover:bg-[#0e5e64]"
+              className="btn btn-sm bg-primary text-white hover:bg-[#0e5e64] flex items-center gap-2"
             >
+              <FaShoppingCart />
               Add to Cart
             </NavLink>
             <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
@@ -108,6 +112,7 @@ const Navbar = () => {
             </span>
           </div>
 
+          {/* Profile Icon */}
           <NavLink to="/profile" className="btn btn-ghost text-xl">
             <FaUser />
           </NavLink>
