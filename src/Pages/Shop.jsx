@@ -1,64 +1,73 @@
 import React, { useEffect, useState } from 'react';
 
+const categories = ['Toys', 'Dress', 'Food', 'Accessories'];
+
+const mockProducts = {
+  Toys: [
+    { id: 1, name: 'Rubber Bone', price: 10, image: '/images/toy1.jpg' },
+    { id: 2, name: 'Squeaky Duck', price: 12, image: '/images/toy2.jpg' },
+  ],
+  Dress: [
+    { id: 3, name: 'Dog Sweater', price: 20, image: '/images/dress1.jpg' },
+  ],
+  Food: [
+    { id: 4, name: 'Puppy Kibble', price: 15, image: '/images/food1.jpg' },
+  ],
+  Accessories: [
+    { id: 5, name: 'Pet Collar', price: 8, image: '/images/acc1.jpg' },
+  ],
+};
+
 const Shop = () => {
+  const [activeCategory, setActiveCategory] = useState('Toys');
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-      .then(res => res.json())
-      .then(data => {
-        setProducts(data);
-        setLoading(false);
-      });
-  }, []);
-
-  const addToCart = (product) => {
-    setCart(prev => [...prev, product]);
-  };
+    setProducts(mockProducts[activeCategory] || []);
+  }, [activeCategory]);
 
   return (
-    <main className="max-w-7xl mx-auto px-4 py-10">
-      <section className="text-center space-y-5">
-        <h1 className="text-3xl font-bold text-gray-800">Pet Essentials & Shop</h1>
-        <p className="text-gray-600">Explore a wide range of food, toys, grooming tools and accessories for your beloved pet!</p>
-      </section>
+    <div className="max-w-7xl mx-auto px-4 py-10 lg:flex gap-6">
+      {/* Sidebar */}
+      <aside className="w-full lg:w-1/5 space-y-3">
+        <h2 className="text-xl font-bold mb-4">Categories</h2>
+        {categories.map(category => (
+          <button
+            key={category}
+            onClick={() => setActiveCategory(category)}
+            className={`block w-full text-left px-4 py-2 rounded-md transition font-medium 
+              ${activeCategory === category ? 'bg-[#0E7A81] text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+          >
+            {category}
+          </button>
+        ))}
+      </aside>
 
-      {loading ? (
-        <div className="flex justify-center py-10">
-          <span className="loading loading-spinner loading-lg"></span>
-        </div>
-      ) : (
-        <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 py-10">
-          {products.map(product => (
-            <div key={product.id} className="bg-white border rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-              <img src={product.image} alt={product.title} className="w-full h-48 object-contain p-4" />
-              <div className="px-4 pb-4 text-left">
-                <h3 className="text-md font-semibold text-gray-800 mb-2 truncate">{product.title}</h3>
-                <p className="text-gray-600 text-sm mb-2">{product.category}</p>
-                <p className="text-gray-800 font-bold text-lg">${product.price}</p>
-                <button
-                  onClick={() => addToCart(product)}
-                  className="mt-4 block w-full bg-[#0E7A81] hover:bg-[#095b60] text-white py-2 rounded-md"
-                >
+      {/* Product Grid */}
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+        {products.map(product => (
+          <div
+            key={product.id}
+            className="bg-white rounded-lg border border-gray-200 hover:shadow-md transition"
+          >
+            <img src={product.image} alt={product.name} className="h-48 w-full object-cover rounded-t-lg" />
+            <div className="p-4 text-left">
+              <h3 className="font-semibold text-lg">{product.name}</h3>
+              <p className="text-gray-600 mb-2">Price: ${product.price}</p>
+              <div className="flex gap-2">
+                <button className="bg-[#0E7A81] text-white px-3 py-1 rounded hover:bg-[#095f64]">
                   Add to Cart
+                </button>
+                <button className="border border-[#0E7A81] text-[#0E7A81] px-3 py-1 rounded hover:bg-[#0E7A811a]">
+                  View Details
                 </button>
               </div>
             </div>
-          ))}
-        </section>
-      )}
+          </div>
+        ))}
+      </section>
+    </div>
+  );
+};
 
-      {cart.length > 0 && (
-        <div className="fixed right-4 bottom-4 bg-white border shadow-lg rounded-lg p-4 w-72 z-50">
-          <h2 className="text-lg font-bold mb-3">Cart Items</h2>
-          <ul className="space-y-2 max-h-60 overflow-y-auto">
-            {cart.map((item, idx) => (
-              <li key={idx} className="flex justify-between text-sm">
-                <span>{item.title.slice(0, 20)}...</span>
-                <span className="font-semibold">${item.price}</span>
-              </li>
-            ))}
-          </ul>
-        
+export default Shop;
