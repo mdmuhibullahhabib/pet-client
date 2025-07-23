@@ -3,17 +3,38 @@ import React from 'react';
 
 const PetCard = ({ pet, onLike, onView }) => {
   return (
-    <div className="card card-compact border rounded-md p-4">
-      <figure className="h-[200px] rounded-md overflow-hidden">
-        <img src={pet.image} alt={pet.pet_name} className="w-full h-full object-cover" />
-      </figure>
-      <div className="border-b pb-3 text-left">
-        <h1 className="text-xl font-bold pt-3">{pet.pet_name}</h1>
-        <p className="text-sm text-[#131313B3] pt-1">Breed: {pet.breed}</p>
-        <p className="text-sm text-[#131313B3] pt-1">Birth: {pet.date_of_birth}</p>
-        <p className="text-sm text-[#131313B3] pt-1">Gender: {pet.gender}</p>
-        <p className="text-sm text-[#131313B3] pt-1">Price: ${pet.price}</p>
+    <div className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300">
+      <img src={pet.image} alt={pet.pet_name} className="w-full h-48 object-cover" />
+      <div className="p-4 text-left">
+        <h3 className="text-lg font-semibold text-gray-800 mb-1">{pet.pet_name}</h3>
+        <p className="text-sm text-gray-600">Breed: {pet.breed}</p>
+        <p className="text-sm text-gray-600">Birth: {pet.date_of_birth}</p>
+        <p className="text-sm text-gray-600">Gender: {pet.gender}</p>
+        <p className="text-sm text-gray-800 font-medium mt-2">Price: ${pet.price}</p>
+        <div className="flex justify-between items-center mt-4">
+          <button
+            onClick={onLike}
+            className="text-red-500 hover:text-red-600 transition"
+            title="Like"
+          >
+            <img src="https://img.icons8.com/?size=24&id=u8MTpAq972MG&format=png" alt="like" />
+          </button>
+          <button
+            onClick={() => document.getElementById('countdownButton').click()}
+            className="text-sm px-4 py-1 bg-[#0E7A81] text-white rounded hover:bg-[#0c6368]"
+          >
+            Adopt
+          </button>
+          <button
+            onClick={onView}
+            className="text-sm px-4 py-1 border border-[#0E7A81] text-[#0E7A81] rounded hover:bg-[#0E7A811A]"
+          >
+            Details
+          </button>
+        </div>
       </div>
-      <div className="card-actions pt-3 flex justify-around">
-        <button onClick={onLike} className="btn bg-white hover:bg-green-400">
+    </div>
+  );
+};
 
+export default PetCard;
