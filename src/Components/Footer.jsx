@@ -1,5 +1,8 @@
 import React from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import logo from '../assets/logo.webp';
+
 
 const Footer = () => {
   return (
@@ -7,10 +10,10 @@ const Footer = () => {
       <div className="w-11/12 mx-auto py-20 grid grid-cols-1 lg:grid-cols-3 gap-10">
         {/* Logo & Contact Info */}
         <div>
-          <a href="/" className="flex items-center gap-2 text-xl font-bold mb-4">
-            <img src="/assets/logo.webp" alt="Peddy Logo" className="w-8 h-8" />
+          <Link href="/" className="flex items-center gap-2 text-xl font-bold mb-4">
+            <img src={logo} alt="Peddy Logo" className="w-8 h-8" />
             <span>Peddy</span>
-          </a>
+          </Link>
           <p className="text-white/90">Location: av. Washington 165, NY CA 54003</p>
           <p className="text-white/90">Phone: +31 85 964 47 25</p>
           <p className="text-white/90">Email: info@yourdomain.com</p>
