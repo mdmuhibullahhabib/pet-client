@@ -1,4 +1,3 @@
-// components/PetCard.jsx
 import React from 'react';
 
 const PetCard = ({ pet, onLike, onView }) => {

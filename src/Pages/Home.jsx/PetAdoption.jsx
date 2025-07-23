@@ -84,7 +84,7 @@ const PetAdoption = () => {
               />
             ))}
           </div>
-          <div className="w-28 lg:w-56 border rounded-lg p-2">
+          <div className="w-28 lg:w-64 border-2 rounded-lg border-gray-200 grid grid-cols-1 lg:grid-cols-2 gap-3 grid-flow-row auto-rows-max px-2 pt-2">
             {likedPets.map((img, idx) => (
               <div key={idx} className="w-24 h-24 my-1">
                 <img src={img} alt="liked" className="h-full w-full object-cover" />
