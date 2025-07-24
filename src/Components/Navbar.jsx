@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaUser, FaShoppingCart, FaPaw } from 'react-icons/fa'; // 🛒 and 🐾 icons
+import { FaUser, FaShoppingCart, FaPaw } from 'react-icons/fa'; // 🛒 and 🐾 
 import logo from '../assets/logo.webp';
 
 const Navbar = () => {
@@ -123,3 +123,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+  
