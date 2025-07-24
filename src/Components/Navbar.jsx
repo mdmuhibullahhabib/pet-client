@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaUser, FaShoppingCart, FaPaw } from 'react-icons/fa'; // 
+import { FaUser, FaShoppingCart, FaPaw } from 'react-icons/fa'; /
 import logo from '../assets/logo.webp';
 
 const Navbar = () => {
