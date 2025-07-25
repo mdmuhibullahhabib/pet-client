@@ -4,6 +4,7 @@ import Home from '../Pages/Home.jsx/Home'
 import Main from '../Layouts/Main'
 import Shop from '../Pages/Shop'
 import Contact from '../Pages/Contact'
+import Cart from '../Pages/Cart'
 
 const Router = createBrowserRouter([
     {
@@ -22,6 +23,14 @@ const Router = createBrowserRouter([
                 path: '/contact',
                 element: <Contact></Contact>,
             },
+            {
+                path: '/cart',
+                element: <Cart></Cart>,
+            },
+            // {
+            //     path: '/contact',
+            //     element: <Contact></Contact>,
+            // },
         ]
     }
 ])

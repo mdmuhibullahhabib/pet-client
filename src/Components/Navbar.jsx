@@ -4,13 +4,13 @@ import { FaUser, FaShoppingCart, FaPaw } from 'react-icons/fa';
 import logo from '../assets/logo.webp';
 
 const Navbar = () => {
-  const [countdown, setCountdown] = useState(10);
+  const [countdown, setCountdown] = useState(1);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCountdown((prev) => (prev > 0 ? prev - 1 : 10));
-    }, 1000);
-    return () => clearInterval(timer);
+    // const timer = setInterval(() => {
+    //   setCountdown((prev) => (prev > 0 ? prev - 1 : 10));
+    // }, 1000);
+    // return () => clearInterval(timer);
   }, []);
 
   const navItems = [
@@ -92,10 +92,9 @@ const Navbar = () => {
           {/* Adopt Button with Icon */}
           <NavLink
             to="/adopt"
-            className="btn btn-outline btn-sm border-primary text-primary hover:bg-primary hover:text-white flex items-center gap-2"
+            className="btn btn-sm text-primary hover:bg-primary hover:text-white flex items-center gap-2"
           >
             <FaPaw />
-            Adopt
           </NavLink>
 
           {/* Add to Cart with Icon & Countdown */}
@@ -105,7 +104,6 @@ const Navbar = () => {
               className="btn btn-sm bg-primary text-white hover:bg-[#0e5e64] flex items-center gap-2"
             >
               <FaShoppingCart />
-              Add to Cart
             </NavLink>
             <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
               {countdown}
