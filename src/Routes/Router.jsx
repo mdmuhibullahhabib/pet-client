@@ -5,6 +5,7 @@ import Main from '../Layouts/Main'
 import Shop from '../Pages/Shop'
 import Contact from '../Pages/Contact'
 import Cart from '../Pages/Cart'
+import Adopt from '../Pages/Adopt'
 
 const Router = createBrowserRouter([
     {
@@ -27,10 +28,10 @@ const Router = createBrowserRouter([
                 path: '/cart',
                 element: <Cart></Cart>,
             },
-            // {
-            //     path: '/contact',
-            //     element: <Contact></Contact>,
-            // },
+            {
+                path: '/adopt',
+                element: <Adopt></Adopt>,
+            },
         ]
     }
 ])
