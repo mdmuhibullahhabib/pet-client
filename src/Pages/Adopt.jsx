@@ -78,7 +78,7 @@ const Adopt = () => {
                   </div>
                   <button
                     onClick={() => removePet(pet.id)}
-                    className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
+                    className="btn mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
                   >
                     Remove
                   </button>
@@ -123,7 +123,7 @@ const Adopt = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition"
+                className="btn w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition"
               >
                 Submit Request
               </button>
