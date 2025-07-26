@@ -14,7 +14,7 @@ const Adopt = () => {
       {
         id: '1',
         name: 'Bella',
-        breed: 'Golden Retriever',
+        breed: 'Golden Retrieve',
         age: '2 years',
         image: 'https://placedog.net/500?id=1'
       },
