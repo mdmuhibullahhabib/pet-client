@@ -125,7 +125,7 @@ const Adopt = () => {
                 type="submit"
                 className="btn w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition"
               >
-                Submit Request ab
+                Submit Request a
               </button>
             </form>
           ) : (
