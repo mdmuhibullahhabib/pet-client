@@ -41,7 +41,7 @@ const Adopt = () => {
     setAdoptedPets(updatedPets);
     localStorage.setItem('adoptedPets', JSON.stringify(updatedPets));
   };
-  co
+  c
 
   const handleChange = (e) => {
     const { name, value } = e.target;
