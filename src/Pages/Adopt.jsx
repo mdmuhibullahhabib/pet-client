@@ -36,6 +36,7 @@ const Adopt = () => {
     setAdoptedPets(storedPets);
   }, []);
 
+  console.log(id)
   const removePet = (id) => {
     const updatedPets = adoptedPets.filter(pet => pet.id !== id);
     setAdoptedPets(updatedPets);
