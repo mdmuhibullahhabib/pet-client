@@ -30,7 +30,7 @@ const Adopt = () => {
         name: 'Luna',
         breed: 'Persian Cat',
         age: '3 years',
-        image: 'htt
+        image: 'https://placekitten.com/500/300'
       }
     ];
     setAdoptedPets(storedPets);
