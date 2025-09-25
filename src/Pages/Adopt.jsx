@@ -31,7 +31,7 @@ const Adopt = () => {
         breed: 'Persian Cat',
         age: '3 years',
         image: 'https://placekitten.com/500/300'
-  
+      }
     ];
     setAdoptedPets(storedPets);
   }, []);
