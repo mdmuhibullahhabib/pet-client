@@ -27,7 +27,9 @@ const Adopt = () => {
       },
       {
         id: '3',
-       
+        name: 'Luna',
+        breed: 'Persian Cat',
+    
     ];
     setAdoptedPets(storedPets);
   }, []);
