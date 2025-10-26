@@ -26,7 +26,10 @@ const Adopt = () => {
         image: 'https://placedog.net/500?id=2'
       },
       {
-     
+        id: '3',
+        name: 'Luna',
+        breed: 'Persian Cat',
+   
     ];
     setAdoptedPets(storedPets);
   }, []);
