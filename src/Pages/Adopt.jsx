@@ -31,6 +31,13 @@ const Adopt = () => {
         breed: 'Persian Cat',
         age: '1 year',
         image: 'https://placedog.net/500?id=2'
+      },
+      {
+        id: '3',
+        name: 'Luna',
+        breed: 'Persian Cat',
+        age: '1 year',
+        image: 'https://placedog.net/500?id=2'
       }
      
     ];
