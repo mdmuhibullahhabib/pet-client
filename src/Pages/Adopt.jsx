@@ -34,7 +34,7 @@ const Adopt = () => {
       },
       {
         
-        image: 'https://placedog.net/500?id=2'
+        image: 'https://placedog.net/5
       }
  
     ];
