@@ -32,11 +32,7 @@ const Adopt = () => {
         age: '1 year',
         image: 'https://placedog.net/500?id=2'
       },
-      {
-        id: '3',
-        name: 'Luna',
-        breed: 'Beagle',
-   
+ 
     ];
     setAdoptedPets(storedPets);
   }, []);
