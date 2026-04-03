@@ -32,10 +32,6 @@ const Adopt = () => {
         age: '1 year',
         image: 'https://placedog.net/500?id=2'
       },
-        breed: 'Beagle',
-        age: '1 year',
-        image: 'https://placedog.net/500?id=2'
-      },
  
 
 
