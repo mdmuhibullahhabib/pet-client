@@ -34,7 +34,6 @@ const Adopt = () => {
       },
       {
          name: 'Luna',
-        breed: 'Beagle',
       }
     ];
     setAdoptedPets(storedPets);
